@@ -6,6 +6,8 @@ var configurationService = require('./../service/configurationService');
 var uuid = require('uuid');
 var entityGenerator = require('azure-storage').TableUtilities.entityGenerator;
 var dataService = require('./../service/dataService');
+var mailService = require('./../service/mailService');
+
 router.get('/', function(req, res, next) {
     var model = {
       event_desc_title: 'ОПИСАНИЕ',
