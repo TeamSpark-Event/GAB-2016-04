@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>{{ title }}</title>
+      <meta name="Keywords" content="{{ keywords }}">
+      <meta name="Description" content="{{ description }}">
+
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+      <!-- css -->
+      <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+
+      <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+      <!-- javascript -->
+      <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+      <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+
+  {{>modal}}
+
+  <!-- navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top myNavbar">
+      <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+
+              <div class="navbar-brand myBrand">
+                  <img class="myLogo" src="/images/ask.png" alt="ask" class="myLogoAsk" />
+                  <span class="myLogoAskText">
+                    участие бесплатное <br /> при обязательной регистрации
+                  </span>
+              </div>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                  <li class="myLi active">
+                      <a href="#" class="myA">
+                          ОПИСАНИЕ
+                      </a>
+                  </li>
+                  <li class="myLi">
+                      <a href="#" class="myA">
+                          ДОКЛАДЫ
+                      </a>
+                  </li>
+                  <li class="myLi">
+                      <a href="#" class="myA">
+                          ЛОКАЦИЯ
+                      </a>
+                  </li>
+              </ul>
+
+              <div class="navbar-text navbar-right">
+                  <div>
+                        <span>
+                            <button type="button" class="btn btn-default myRegisterButton btn-lg" onclick="showModal()" data-toggle="modal" data-target="#myModal">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+                        </span>
+                  </div>
+              </div>
+
+              <script>
+                  function showModal() {
+                      var divRegistrationForm = $('#divRegistrationForm');
+                      var divRegistrationWait = $('#divRegistrationWait');
+                      var divRegistrationDone = $('#divRegistrationDone');
+
+                      divRegistrationForm.removeClass('hide');
+                      divRegistrationWait.addClass('hide');
+                      divRegistrationDone.addClass('hide');
+                  }
+              </script>
+
+          </div><!-- /.navbar-collapse -->
+
+      </div><!-- /.container-fluid -->
+
+  </nav>
+
+  <div class="container">
+      <img src="/images/head.jpg" alt="header" class="myHeaderImg" />
+  </div>
+
+  <div class="container">
+      <h2>
+          {{ event_desc_title }}
+      </h2>
+  </div>
+
+  <div class="container">
+      <div class="myEventDesc">
+          {{{ event_desc }}}
+      </div>
+  </div>
+
+  <div class="container">
+      <h2>
+          {{ slots_title }}
+      </h2>
+  </div>
+
+  <div class="container">
+      {{#slots}}
+          <div class="mySlotsHeader">
+              {{ title }}
+          </div>
+          <div class="mySlotsText">
+              {{{ desc }}}
+          </div>
+      {{/slots}}
+  </div>
+
+  <div class="container">
+      <h2>
+          {{ location_title }}
+      </h2>
+  </div>
+
+  <div class="container">
+      {{{ location_text }}}
+  </div>
+
+  <div class="container myMapContainer">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.110366855523!2d30.49668935179911!3d50.43904487937299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cef1dad747f1%3A0x520c319cb361053e!2sZhylianska+St%2C+75%2C+Kyiv%2C+Ukraine!5e0!3m2!1sen!2s!4v1459366500615" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </div>
+
+  <div class="container">
+      <h2>
+          {{ partners_title }}
+      </h2>
+  </div>
+
+  <div class="container">
+      {{#partners}}
+          <div class="row">
+              <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6 myPartnersImg">
+                  <img src="{{ img }}" alt="{{ title }}" />
+              </div>
+              <div class="col-md-9 col-lg-9 col-sm-6 col-xs-6 myPartnersText">
+                  {{{ text }}}
+              </div>
+          </div>
+      {{/partners}}
+  </div>
+
+  <div class="container">
+    <img src="/images/footer.jpg" alt="footer" />
+  </div>
+
+  </body>
+
+</html>

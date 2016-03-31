@@ -1,0 +1,58 @@
+<!-- modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div id="divRegistrationForm" class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <div class="modal-title" id="myModalLabel">
+                    Чтобы зарегистрироваться на GAB 2016, пожалуйста, заполните форму:
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="form-group myRegistrationForm">
+                    <label for="tbEmail">Ваш Email:</label>
+                    <input type="email" class="form-control" id="tbEmail" placeholder="Email" />
+                    <label for="tbName">Ваши ФИО:</label>
+                    <input type="email" class="form-control" id="tbName" placeholder="ФИО" />
+                      <span class="help-block">
+                          <span>
+                              Ваше полное имя необходимо для внесения вас в списки посетителей Microsoft Ukraine.
+                          </span>
+                          <span class="myGreenNotice">
+                              Обратите внимание!
+                          </span>
+                          <div>
+                              На конференцию вам необходимо будет взять с собой документ, подтверждающий личность.
+                          </div>
+                      </span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-primary" onclick="btnRegistrationClick()">Зарегистрироваться</button>
+            </div>
+        </div>
+        <div id="divRegistrationWait" class="modal-content hide">
+            Wait...
+        </div>
+        <div id="divRegistrationDone" class="modal-content hide">
+            Done!
+        </div>
+    </div>
+</div>
+
+<script>
+    function btnRegistrationClick() {
+        var divRegistrationForm = $('#divRegistrationForm');
+        var divRegistrationWait = $('#divRegistrationWait');
+        var divRegistrationDone = $('#divRegistrationDone');
+
+        divRegistrationForm.addClass('hide');
+        divRegistrationWait.removeClass('hide');
+
+        setTimeout(function() {
+            divRegistrationWait.addClass('hide');
+            divRegistrationDone.removeClass('hide');
+        }, 3000);
+    }
+</script>

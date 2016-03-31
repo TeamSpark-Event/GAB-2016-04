@@ -1,0 +1,205 @@
+body {
+    padding-top: 100px; /* for NAVBAR  */
+    font-family: "Tahoma", Arial, sans-serif;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* HEADERS */
+
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #96B62A;
+}
+
+h2 {
+    font-size: 1.7em;
+    font-weight: normal;
+    color: #9c0;
+}
+
+h3 {
+    font-size: 1em;
+    font-weight: bold;
+    color: #666;
+}
+
+/* NAVBAR */
+
+.myNavbar {
+    min-height: 70px;
+    background-color: #fff;
+    border: none;
+}
+
+ .myLogo {
+    margin: 0 12px 0 12px;
+}
+
+.container>.navbar-header {
+    min-height: 70px;
+}
+
+ .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+     background-color: #fff;
+ }
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    background-color: transparent;
+}
+
+ ul.navbar-nav li.myLi {
+    padding-top: 10px;
+    font-family: "Tahoma", Arial, sans-serif;
+    font-size: 1.1em;
+    color: #666;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+ul.navbar-nav li.myLi a.myA {
+    color: #666;
+}
+
+ul.navbar-nav li.myLi a.myA:hover, ul.navbar-nav li.myLi a.myA:active, ul.navbar-nav li.myLi a.myA:visited {
+    color: #666;
+    background-color: transparent;
+}
+
+ul.navbar-nav li.myLi.active {
+    border-bottom: 10px #9c0 solid;
+}
+
+.myRegisterButton {
+    padding: 10px 17px;
+    background-color: #9c0;
+    color: #fff;
+}
+
+.navbar-brand>img {
+    display: inline-block;
+}
+
+.myBrand {
+    display: inline-block;
+}
+
+.myLogoAsk {
+    width: 30px;
+    margin: 0;
+    display: inline-block;
+}
+
+.myLogoAskText {
+    font-size: 16px;
+    line-height: 0.95;
+    display: inline-block;
+    margin-right: 25px;
+}
+
+/* HEADER */
+
+.myHeaderImg {
+    box-shadow:  0px 0px 15px #888888;
+    margin-bottom: 20px;
+}
+
+.myEventDesc {
+    text-align: justify;
+}
+
+/* SLOTS */
+
+.mySlotsHeader {
+    margin: 0 0 15px 0px;
+    font-size: 1.4em;
+    font-weight: normal;
+    color: #666;
+}
+
+.mySlotsHeader:first-of-type {
+    padding-top: 20px;
+}
+
+.mySlotsHeader:before {
+    content: url("/images/dot.jpg");
+    padding: 0 25px 0 0;
+}
+
+.mySlotsText {
+    margin: 0 0 15px 0px;
+    text-align: justify;
+}
+
+.myMapContainer {
+    padding: 15px;
+}
+
+.myPartnersText {
+    padding: 0 0 20px 0;
+    text-align: justify;
+    display: block;
+}
+
+.myPartnersImg:first-of-type {
+    margin-top: 15px;
+}
+
+.myPartnersImg {
+    display: block;
+    max-height: 100px;
+}
+
+/* REGISTRATION */
+
+.myRegistrationForm input {
+    margin-bottom: 15px;
+}
+
+/* CONTENT */
+
+.myGreenNotice {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #96B62A;
+}
+
+a.myGreenLink {
+    font-size: 1.15em;
+    font-weight: bold;
+    color: #96B62A;
+}
+
+a.myGreenLink:hover {
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
