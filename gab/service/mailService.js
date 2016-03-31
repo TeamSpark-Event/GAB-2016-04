@@ -7,7 +7,7 @@ var service = {};
 var mailTemplate = {
     registrationConfirm: {
         getSubject: function() {
-            return 'Подтверждение реистрации на Global Azure Bootcamp ' + configurationService.gab.year;
+            return 'Подтверждение регистрации на Global Azure Bootcamp ' + configurationService.gab.year;
         },
         getHtml: function(registrationId) {
             var array = [];
