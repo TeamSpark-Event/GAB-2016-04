@@ -33,10 +33,22 @@
             </div>
         </div>
         <div id="divRegistrationWait" class="modal-content hide">
-            Wait...
+            <div class="modal-body">
+                <div>
+                    Ваш запрос обрабатывается.
+                    <div id="myPreloader">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="divRegistrationDone" class="modal-content hide">
-            Done!
+            <div class="modal-body">
+                Спасибо, вы зарегистрированы!
+            </div>
         </div>
     </div>
 </div>
