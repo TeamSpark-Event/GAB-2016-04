@@ -21,16 +21,30 @@
 
 <body>
 
+    <div class="container">
+        <img src="/images/head.jpg" alt="header" class="myHeaderImg" />
+    </div>
     {{#isError}}
-        <div>
-            <h3>Ошибка!</h3>
-            <p>{{ errorMessage }}</p>
+        <div class="container">
+            <h2>
+                Ошибка!
+            </h2>
+            <p>
+                {{ errorMessage }}
+            </p>
         </div>
     {{/isError}}
     {{^isError}}
-        <div>
-            <h3>Ура!</h3>
-            <p>В ближайшее время вам на почту прийдет письмо с подтверждением регистрации. Ждем вас на Global Azure Bootcamp.</p>
+        <div class="container">
+            <h2>
+                Ура!
+            </h2>
+            <p>
+                В ближайшее время вам на почту прийдет письмо с подтверждением регистрации.
+            </p>
+            <p>
+                Ждем вас на Global Azure Bootcamp 2016!
+            </p>
         </div>
     {{/isError}}
 
