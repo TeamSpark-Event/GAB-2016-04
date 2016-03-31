@@ -47,7 +47,14 @@
         </div>
         <div id="divRegistrationDone" class="modal-content hide">
             <div class="modal-body">
-                Спасибо, вы зарегистрированы!
+                <p>Спасибо, вы зарегистрированы!</p>
+                <p>В ближайшее время вы получите письмо на указанный адрес электронной почты. Вам нужно будет пройти по ссылке для подтверждения вашего участия в конференции.</p>
+            </div>
+        </div>
+        <div id="divRegistrationError" class="modal-content hide">
+            <div class="modal-body">
+                <p>Ошибка!</p>
+                <p id="lbErrorMessage"></p>
             </div>
         </div>
     </div>
@@ -58,13 +65,29 @@
         var divRegistrationForm = $('#divRegistrationForm');
         var divRegistrationWait = $('#divRegistrationWait');
         var divRegistrationDone = $('#divRegistrationDone');
+        var divRegistrationError = $('#divRegistrationError');
 
         divRegistrationForm.addClass('hide');
         divRegistrationWait.removeClass('hide');
 
-        setTimeout(function() {
-            divRegistrationWait.addClass('hide');
-            divRegistrationDone.removeClass('hide');
-        }, 3000);
+        var data = {
+            name: document.getElementById('tbName').value,
+            email: document.getElementById('tbEmail').value
+        };
+
+        $.post('/register', data)
+            .done(function(response) {
+                divRegistrationWait.addClass('hide');
+                if (response.isError) {
+                    divRegistrationError.removeClass('hide');
+                    document.getElementById('lbErrorMessage').innerText = response.errorMessage;
+                } else {
+                    divRegistrationDone.removeClass('hide');
+                }
+            })
+            .fail(function() {
+                divRegistrationWait.addClass('hide');
+                divRegistrationError.removeClass('hide');
+            });
     }
 </script>

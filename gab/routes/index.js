@@ -1,7 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+var configurationService = require('./../service/configurationService');
+
+var uuid = require('uuid');
+var entityGenerator = require('azure-storage').TableUtilities.entityGenerator;
+var dataService = require('./../service/dataService');
 router.get('/', function(req, res, next) {
     var model = {
       event_desc_title: 'ОПИСАНИЕ',
@@ -30,6 +34,37 @@ router.get('/', function(req, res, next) {
 
     res.render ( 'index', model
   );
+});
+
+router.post('/register', function(req, res, next) {
+    var content = req.body;
+
+    var userName = content.name;
+    var userEmail = content.email;
+    var registrationId = uuid.v4().toLowerCase();
+
+    var entityRegistration = {
+        PartitionKey: entityGenerator.String(configurationService.gab.year.toString()),
+        RowKey: entityGenerator.String(registrationId),
+        Name: entityGenerator.String(userName),
+        EMail: entityGenerator.String(userEmail),
+        IsConfirmed: entityGenerator.Boolean(false)
+    };
+
+    var apiResponse = {
+        isError: false,
+        errorMessage: ''
+    };
+
+    dataService.table.insertTableEntity(dataService.table.tableNames.gabRegistration, entityRegistration, function(error, result, response){
+        if (error) {
+            apiResponse.isError = true;
+            apiResponse.errorMessage = 'Произошла ошибка во время добавления вашей заявки на участие в конференции. Попробуйте заполнить форму еще раз или свяжитесь с организаторами конференции.';
+
+            res.send(apiResponse);
+        } else {
+        }
+    });
 });
 
 module.exports = router;

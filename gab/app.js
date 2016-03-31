@@ -23,6 +23,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
+// storage initialization
+var dataService = require('./service/dataService');
+dataService.table.createTableIfNotExists(dataService.table.tableNames.gabRegistration, function() {});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

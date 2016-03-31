@@ -84,10 +84,16 @@
                       var divRegistrationForm = $('#divRegistrationForm');
                       var divRegistrationWait = $('#divRegistrationWait');
                       var divRegistrationDone = $('#divRegistrationDone');
+                      var divRegistrationError = $('#divRegistrationError');
 
                       divRegistrationForm.removeClass('hide');
                       divRegistrationWait.addClass('hide');
                       divRegistrationDone.addClass('hide');
+                      divRegistrationError.addClass('hide');
+
+                      document.getElementById('tbName').value = '';
+                      document.getElementById('tbEmail').value = '';
+                      document.getElementById('lbErrorMessage').innerText = '';
                   }
               </script>
 
