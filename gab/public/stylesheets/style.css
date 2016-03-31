@@ -1,6 +1,7 @@
 body {
-    padding-top: 100px; /* for NAVBAR  */
+    padding-top: 80px; /* for NAVBAR  */
     font-family: "Tahoma", Arial, sans-serif;
+    position: relative;
 }
 
 a:hover {
@@ -140,6 +141,8 @@ ul.navbar-nav li.myLi.active {
 
 .myMapContainer {
     padding: 15px;
+    display: block;
+    min-height: 500px;
 }
 
 .myPartnersText {

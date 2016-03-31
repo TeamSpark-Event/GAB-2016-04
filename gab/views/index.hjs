@@ -19,9 +19,10 @@
       <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 
       <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-offset="80" data-target="#bs-example-navbar-collapse-1">
 
   {{>modal}}
 
@@ -31,6 +32,7 @@
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
@@ -48,18 +50,23 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                   <li class="myLi active">
-                      <a href="#" class="myA">
+                      <a href="#event_desc" class="myA">
                           ОПИСАНИЕ
                       </a>
                   </li>
                   <li class="myLi">
-                      <a href="#" class="myA">
+                      <a href="#slots" class="myA">
                           ДОКЛАДЫ
                       </a>
                   </li>
                   <li class="myLi">
-                      <a href="#" class="myA">
+                      <a href="#location" class="myA">
                           ЛОКАЦИЯ
+                      </a>
+                  </li>
+                  <li class="myLi">
+                      <a href="#partners" class="myA">
+                          ПАРТНЕРЫ
                       </a>
                   </li>
               </ul>
@@ -95,6 +102,7 @@
   </div>
 
   <div class="container">
+      <a id="event_desc"></a>
       <h2>
           {{ event_desc_title }}
       </h2>
@@ -107,6 +115,7 @@
   </div>
 
   <div class="container">
+      <a id="slots"></a>
       <h2>
           {{ slots_title }}
       </h2>
@@ -124,6 +133,7 @@
   </div>
 
   <div class="container">
+      <a id="location"></a>
       <h2>
           {{ location_title }}
       </h2>
@@ -135,9 +145,11 @@
 
   <div class="container myMapContainer">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.110366855523!2d30.49668935179911!3d50.43904487937299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cef1dad747f1%3A0x520c319cb361053e!2sZhylianska+St%2C+75%2C+Kyiv%2C+Ukraine!5e0!3m2!1sen!2s!4v1459366500615" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      {{{ location_text_after }}}
   </div>
 
   <div class="container">
+      <a id="partners"></a>
       <h2>
           {{ partners_title }}
       </h2>
@@ -154,6 +166,9 @@
               </div>
           </div>
       {{/partners}}
+      <div>
+          &nbsp;
+      </div>
   </div>
 
   <div class="container">

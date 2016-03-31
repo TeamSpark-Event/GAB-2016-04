@@ -15,6 +15,7 @@ router.get('/', function(req, res, next) {
       ],
       location_title: 'ЛОКАЦИЯ',
       location_text: 'г.Киев, ул.Жилянская 75, Бизнес-центр “Евразия”, Microsoft Ukraine',
+      location_text_after: '<div class="myGreenNotice">Обратите внимание! </div> <div>На конференцию вам необходимо будет взять с собой документ, подтверждающий личность.</div>',
       // location_map_url: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.120271577851!2d30.498835119011176!3d50.43886038308958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cef1dad747f1%3A0x520c319cb361053e!2sZhylianska+St%2C+75%2C+Kyiv%2C+Ukraine!5e0!3m2!1sen!2s!4v1459013320376',
       partners_title: 'ПАРТНЕРЫ',
       partners: [
