@@ -32,9 +32,9 @@ var mailTemplate = {
         getSubject: function() {
             return 'Ваша регистрация на Global Azure Bootcamp ' + configurationService.gab.year + ' подтверждена!';
         },
-        getHtml: function() {
+        getHtml: function(name) {
             var array = [];
-            array.push('<h3>Спасибо, ваша регистрация на Global Azure Bootcamp ' + configurationService.gab.year + ' успешно подтверждена!</h3>');
+            array.push('<h3>Спасибо ' + name + ', ваша регистрация на Global Azure Bootcamp ' + configurationService.gab.year + ' успешно подтверждена!</h3>');
             array.push('<div>');
             array.push('<p>');
             array.push('Global Azure Bootcamp ' + configurationService.gab.year + ' состоится 16го апреля 2016 года в г.Киеве по адресу ул.Жилянская 75, офис Microsoft Ukraine. Начало регистрации в 9-00, начало докладов в 10-00.');
@@ -46,9 +46,9 @@ var mailTemplate = {
 
             return array.join('');
         },
-        getText: function() {
+        getText: function(name) {
             var array = [];
-            array.push('Спасибо, ваша регистрация на Global Azure Bootcamp ' + configurationService.gab.year + ' успешно подтверждена!');
+            array.push('Спасибо' + name + ', ваша регистрация на Global Azure Bootcamp ' + configurationService.gab.year + ' успешно подтверждена!');
             array.push('Global Azure Bootcamp ' + configurationService.gab.year + ' состоится 16го апреля 2016 года в г.Киеве по адресу ул.Жилянская 75, офис Microsoft Ukraine. Начало регистрации в 9-00, начало докладов в 10-00.');
             array.push('Следите за обновлениями в рассылке или же на нашем сайте: ' + configurationService.web.domain);
 
@@ -80,8 +80,8 @@ service.sendRegistrationDoneEmail = function(toEmail, toName, callback) {
         from: configurationService.smtp.fromEmail,
         fromname: configurationService.smtp.fromName,
         subject: mailTemplate.registrationDone.getSubject(),
-        text: mailTemplate.registrationDone.getText(),
-        html: mailTemplate.registrationDone.getHtml()
+        text: mailTemplate.registrationDone.getText(toName),
+        html: mailTemplate.registrationDone.getHtml(toName)
     });
 
     sendgrid.send(email, function(err, json) {

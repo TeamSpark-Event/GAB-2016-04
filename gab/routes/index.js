@@ -39,55 +39,62 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/confirm/:registrationId', function(req, res, next) {
-    var registrationId = req.param.registrationId;
-
     var model = {
         isError: false,
         errorMessage: ''
     };
 
-    dataService.table.getTableEntities(dataService.table.tableNames.gabRegistration, configurationService.gab.year, registrationId, null, function(errorGet, responseGet) {
-        if (!!errorGet) {
-            model.isError = true;
-            model.errorMessage = 'Произошла ошибка. Обратитесь к организаторам конференции для подтверждения вашей регистрации.';
+    var registrationId = req.params.registrationId;
 
-            res.render ('confirm', model);
-        } else {
-            var results = responseGet.entries;
-            if (!Array.isArray(results) || results.length == 0) {
+    if (!!registrationId) {
+        dataService.table.getTableEntities(dataService.table.tableNames.gabRegistration, configurationService.gab.year, registrationId, null, function(errorGet, responseGet) {
+            if (!!errorGet) {
                 model.isError = true;
-                model.errorMessage = 'Произошла ошибка. Мы не смогли найти вашу заявку на участие в нашей базе. Обратитесь к организаторам конференции для подтверждения вашей регистрации.';
+                model.errorMessage = 'Произошла ошибка. Обратитесь к организаторам конференции для подтверждения вашей регистрации.';
 
                 res.render ('confirm', model);
             } else {
-                var entityRegistration = results[0];
-                entityRegistration.IsConfirmed._ = true;
+                var results = responseGet.entries;
+                if (!Array.isArray(results) || results.length == 0) {
+                    model.isError = true;
+                    model.errorMessage = 'Произошла ошибка. Мы не смогли найти вашу заявку на участие в нашей базе. Обратитесь к организаторам конференции для подтверждения вашей регистрации.';
 
-                var userEmail = entityRegistration.EMail._;
-                var userName = entityRegistration.Name._;
+                    res.render ('confirm', model);
+                } else {
+                    var entityRegistration = results[0];
+                    entityRegistration.IsConfirmed._ = true;
 
-                dataService.table.replaceTableEntity(dataService.table.tableNames.gabRegistration, entityRegistration, function(errorReplace, resultReplace, responseReplace){
-                    if (!!errorReplace) {
-                        model.isError = true;
-                        model.errorMessage = 'Произошла ошибка. Мы не смогли подтвердить вашу заявку на участие. Обратитесь к организаторам конференции для подтверждения вашей регистрации.';
+                    var userEmail = entityRegistration.EMail._;
+                    var userName = entityRegistration.Name._;
 
-                        res.render ('confirm', model);
-                    } else {
-                        mailService.sendRegistrationDoneEmail(userEmail, userName, function(errorSend, resposeSend) {
-                            if (!!errorSend) {
-                                model.isError = true;
-                                model.errorMessage = 'Произошла ошибка. Мы не смогли отправить вам письмо с подтверждением регистрации. Обратитесь к организаторам конференции для подтверждения вашей регистрации.';
+                    dataService.table.replaceTableEntity(dataService.table.tableNames.gabRegistration, entityRegistration, function(errorReplace, resultReplace, responseReplace){
+                        if (!!errorReplace) {
+                            model.isError = true;
+                            model.errorMessage = 'Произошла ошибка. Мы не смогли подтвердить вашу заявку на участие. Обратитесь к организаторам конференции для подтверждения вашей регистрации.';
 
-                                res.render ('confirm', model);
-                            } else {
-                                res.render ('confirm', model);
-                            }
-                        });
-                    }
-                });
+                            res.render ('confirm', model);
+                        } else {
+                            mailService.sendRegistrationDoneEmail(userEmail, userName, function(errorSend, resposeSend) {
+                                if (!!errorSend) {
+                                    model.isError = true;
+                                    model.errorMessage = 'Произошла ошибка. Мы не смогли отправить вам письмо с подтверждением регистрации. Обратитесь к организаторам конференции для подтверждения вашей регистрации.';
+
+                                    res.render ('confirm', model);
+                                } else {
+                                    res.render ('confirm', model);
+                                }
+                            });
+                        }
+                    });
+                }
             }
-        }
-    });
+        });
+    } else {
+        model.isError = true;
+        model.errorMessage = 'Произошла ошибка. Мы не смогли найти вашу заявку на участие в нашей базе. Обратитесь к организаторам конференции для подтверждения вашей регистрации.';
+
+        res.render ('confirm', model);
+    }
 });
 
 router.post('/register', function(req, res, next) {
