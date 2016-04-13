@@ -116,6 +116,10 @@ ul.navbar-nav li.myLi.active {
     text-align: justify;
 }
 
+.myEventDesc > p {
+    margin: 15px 0;
+}
+
 /* SLOTS */
 
 .mySlotsHeader {
