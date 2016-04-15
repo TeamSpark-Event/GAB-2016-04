@@ -71,13 +71,13 @@
                   </li>
               </ul>
 
-              <div class="navbar-text navbar-right">
-                  <div>
-                        <span>
-                            <button type="button" class="btn btn-default myRegisterButton btn-lg" onclick="showModal()" data-toggle="modal" data-target="#myModal">ЗАРЕГИСТРИРОВАТЬСЯ</button>
-                        </span>
-                  </div>
-              </div>
+              <!--<div class="navbar-text navbar-right">-->
+                  <!--<div>-->
+                        <!--<span>-->
+                            <!--<button type="button" class="btn btn-default myRegisterButton btn-lg" onclick="showModal()" data-toggle="modal" data-target="#myModal">ЗАРЕГИСТРИРОВАТЬСЯ</button>-->
+                        <!--</span>-->
+                  <!--</div>-->
+              <!--</div>-->
 
               <script>
                   function showModal() {
