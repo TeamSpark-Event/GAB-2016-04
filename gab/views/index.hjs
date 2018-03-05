@@ -139,6 +139,24 @@
   </div>
 
   <div class="container">
+      <a id="workshops"></a>
+      <h2>
+          {{ workshops_title }}
+      </h2>
+  </div>
+
+  <div class="container">
+      {{#workshops}}
+          <div class="mySlotsHeader">
+              {{ title }}
+          </div>
+          <div class="mySlotsText">
+              {{{ desc }}}
+          </div>
+      {{/workshops}}
+  </div>
+
+  <div class="container">
       <a id="location"></a>
       <h2>
           {{ location_title }}
