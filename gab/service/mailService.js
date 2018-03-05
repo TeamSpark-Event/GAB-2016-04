@@ -37,7 +37,7 @@ var mailTemplate = {
             array.push('<h3>Спасибо ' + name + ', ваша регистрация на Global Azure Bootcamp ' + configurationService.gab.year + ' успешно подтверждена!</h3>');
             array.push('<div>');
             array.push('<p>');
-            array.push('Global Azure Bootcamp ' + configurationService.gab.year + ' состоится 16го апреля 2016 года в г.Киеве по адресу ул.Жилянская 75, офис Microsoft Ukraine. Начало регистрации в 9-00, начало докладов в 10-00.');
+            array.push('Global Azure Bootcamp ' + configurationService.gab.year + ' состоится 21го апреля 2018 года в г.Киеве по адресу ул.Жилянская 75, офис Microsoft Ukraine. Начало регистрации в 9-00, начало докладов в 10-00.');
             array.push('</p>');
             array.push('<p>');
             array.push('Следите за обновлениями в рассылке или же на нашем <a href="' + configurationService.web.domain + '" style="color: #9c0; font-size: 16px;">сайте</a>.');
@@ -77,7 +77,7 @@ var mailTemplate = {
         getText: function(name) {
             var array = [];
             array.push('Спасибо' + name + ', ваша регистрация на Global Azure Bootcamp ' + configurationService.gab.year + ' успешно подтверждена!');
-            array.push('Global Azure Bootcamp ' + configurationService.gab.year + ' состоится 16го апреля 2016 года в г.Киеве по адресу ул.Жилянская 75, офис Microsoft Ukraine. Начало регистрации в 9-00, начало докладов в 10-00.');
+            array.push('Global Azure Bootcamp ' + configurationService.gab.year + ' состоится 21го апреля 2018 года в г.Киеве по адресу ул.Жилянская 75, офис Microsoft Ukraine. Начало регистрации в 9-00, начало докладов в 10-00.');
             array.push('Следите за обновлениями в рассылке или же на нашем сайте: ' + configurationService.web.domain);
             array.push('Список докладов');
             array.push('* Сборка, развертывание и управление релизами в облаке.');
