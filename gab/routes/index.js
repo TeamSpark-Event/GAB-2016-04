@@ -21,10 +21,6 @@ router.get('/', function(req, res, next) {
           {
             title: 'Статически-динамические сайты или фантастические звери и места их обитания',
             desc: ''
-          },
-          {
-            title: 'Azure quantum computing',
-            desc: ''
           }
       ],
       workshops_title: 'СПИСОК ЛАБОРАТОРНЫХ РАБОТ',
