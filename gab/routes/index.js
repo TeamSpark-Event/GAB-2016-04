@@ -21,6 +21,10 @@ router.get('/', function(req, res, next) {
           {
             title: 'Статически-динамические сайты или фантастические звери и места их обитания',
             desc: ''
+          },
+          {
+            title: 'Как Azure Security Center помогает защитить мое приложение',
+            desc: ''
           }
       ],
       workshops_title: 'СПИСОК ЛАБОРАТОРНЫХ РАБОТ',
