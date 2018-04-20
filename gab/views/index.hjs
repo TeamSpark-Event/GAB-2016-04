@@ -139,12 +139,6 @@
   </div>
 
   <div class="container">
-      <div class="mySlotsText">
-           Другие доклады будут анонсированы позднее
-      </div>
-  </div>
-
-  <div class="container">
       <a id="workshops"></a>
       <h2>
           {{ workshops_title }}

@@ -21,10 +21,6 @@ router.get('/', function(req, res, next) {
           {
             title: 'Статически-динамические сайты или фантастические звери и места их обитания',
             desc: ''
-          },
-          {
-            title: 'Как Azure Security Center помогает защитить мое приложение',
-            desc: ''
           }
       ],
       workshops_title: 'СПИСОК ЛАБОРАТОРНЫХ РАБОТ',
@@ -65,8 +61,11 @@ router.get('/', function(req, res, next) {
         modal: '_modal'
     };
 
-    res.render ( 'index', model
-  );
+    res.render ('index', model);
+});
+
+router.get('/lab', function(req, res, next) {
+  res.render ('lab', null);
 });
 
 // router.get('/confirm/:registrationId', function(req, res, next) {
